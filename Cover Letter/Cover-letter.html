@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Cover Letter Generator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+   <nav>
+    <h1>Smart Fresher Hub</h1>
+    <ul>
+      <li><a href="https://smart-fresher-sa.great-site.net/?i=2">🏠 Home</a></li>
+      <li><a href="Cover-letter.html">🧾 Cover Letter</a></li>
+      <li><a href="about.html" class="active">ℹ️ About</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1>Smart Cover Letter Generator</h1>
+    <p>Generate your personalized cover letter in seconds.</p>
+  </header>
+
+  <form id="coverLetterForm">
+    <h2>Enter Your Details</h2>
+
+    <!-- Required Fields -->
+    <label>Full Name*<input type="text" name="name" required></label>
+    <label>Email*<input type="email" name="email" required></label>
+    <label>Phone*<input type="tel" name="phone" required></label>
+    <label>Job Title*<input type="text" name="jobTitle" required></label>
+    <label>Company Name*<input type="text" name="company" required></label>
+    <label>Where Did You Find the Job?*<input type="text" name="jobSource" required></label>
+    <label>Technologies / Tools You Know*<input type="text" name="tools" required></label>
+    <label>Your Skills*<input type="text" name="skills" required></label>
+
+    <!-- Optional Fields -->
+    <label>Hiring Manager Name (optional)<input type="text" name="manager"></label>
+    <label>Project or Internship Experience (optional)<textarea name="project"></textarea></label>
+    <label>Availability (optional)<input type="text" name="availability"></label>
+    <label>Short Message (optional)<textarea name="message"></textarea></label>
+
+    <button type="submit">Generate Cover Letter</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    
+  
+  </form>
+
+  <section id="resultBox">
+    <h2>Your Cover Letter:</h2>
+    <pre id="coverLetterOutput" style="white-space: pre-wrap;"></pre>
+    <button id="downloadPDF">Download as PDF</button>
+  </section>
+  
+
+
+  <footer>
+    <p>© 2025 Smart Fresher Hub | Simple, fast, and private cover letter generation for job seekers.</p>
+  </footer>
+
+  <script src="google-sheet.js"></script>
+  <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+</body>
+</html>
