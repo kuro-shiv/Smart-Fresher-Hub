@@ -3,204 +3,251 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Resume Generator</title>
+  <title>Resume Builder</title>
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: Arial, sans-serif;
       margin: 2rem;
-      background-color: #f0f8ff;
+      background-color: #f9f9f9;
     }
     .form-group {
       margin-bottom: 1rem;
     }
     label {
       font-weight: bold;
+      display: block;
+      margin-bottom: 0.25rem;
     }
-    input, textarea {
+    input, textarea, select {
       width: 100%;
       padding: 0.5rem;
-      margin-top: 0.25rem;
       border: 1px solid #ccc;
-      border-radius: 0.25rem;
+      border-radius: 4px;
+      box-sizing: border-box;
     }
     button {
       padding: 0.5rem 1rem;
       background-color: #0077b6;
-      color: white;
+      color: #fff;
       border: none;
-      border-radius: 0.25rem;
+      border-radius: 4px;
       cursor: pointer;
+      margin-top: 1rem;
     }
     button:hover {
-      background-color: #023e8a;
+      background-color: #005f87;
     }
     #resume {
-      margin-top: 2rem;
+      background: #fff;
       padding: 2rem;
-      background-color: #ffffff;
-      border-radius: 0.5rem;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-top: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
     }
     hr {
-      border: none;
-      border-top: 1px solid #ccc;
-      margin: 1rem 0;
+      margin: 1.5rem 0;
+    }
+    @media (max-width: 768px) {
+      body {
+        margin: 1rem;
+      }
+      #resume, form {
+        padding: 1rem;
+      }
+      button {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
-  <h2>Resume Generator</h2>
+  <h2>Resume Builder</h2>
   <form id="resumeForm">
     <div class="form-group">
-      <label>Name</label>
-      <input type="text" name="name" required>
+      <label for="profession">Select Your Profession</label>
+      <select name="profession" id="profession">
+        <option value="">-- Select Profession --</option>
+        <option value="doctor">Doctor</option>
+        <option value="hr">HR Professional</option>
+        <option value="tech">Tech Professional</option>
+        <option value="sales">Salesperson</option>
+        <option value="mechanic">Mechanic</option>
+        <option value="freelancer">Freelancer</option>
+        <option value="other">Other</option>
+      </select>
     </div>
     <div class="form-group">
-      <label>Email</label>
-      <input type="email" name="email">
+      <label for="fullName">Full Name</label>
+      <input type="text" name="fullName" required />
     </div>
     <div class="form-group">
-      <label>Phone</label>
-      <input type="text" name="phone">
+      <label for="email">Email</label>
+      <input type="email" name="email" required />
     </div>
     <div class="form-group">
-      <label>Summary</label>
-      <textarea name="summary" rows="3" placeholder="A brief professional summary..."></textarea>
+      <label for="phone[]">Phone Number</label>
+      <input type="text" name="phone[]" required />
     </div>
-
-    <div class="form-group" id="experienceBlocks">
-      <label>Experience</label>
-      <input type="text" name="experienceTitle[]" placeholder="Title (e.g., Software Engineer)">
-      <input type="text" name="experienceCompany[]" placeholder="Company (e.g., Google)">
-      <input type="text" name="experienceDuration[]" placeholder="Duration (e.g., Jan 2020 - Present)">
-      <textarea name="experienceDesc[]" rows="2" placeholder="Describe your responsibilities or achievements..."></textarea>
+    <div class="form-group">
+      <label for="url[]">Portfolio / Blog / Social URL</label>
+      <input type="url" name="url[]" />
     </div>
-    <button type="button" id="addExperienceBtn">+ Add Experience</button>
-
-    <div class="form-group" id="educationBlocks">
-      <label>Education</label>
-      <input type="text" name="educationDegree[]" placeholder="Degree (e.g., B.Sc. Computer Science)">
-      <input type="text" name="educationSchool[]" placeholder="School (e.g., MIT)">
-      <input type="text" name="educationYear[]" placeholder="Year (e.g., 2020)">
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input type="text" name="address" />
     </div>
-    <button type="button" id="addEducationBtn">+ Add Education</button>
-
-    <div class="form-group" id="skillsBlocks">
-      <label>Skills</label>
-      <input type="text" name="programmingLanguages" placeholder="Technical Skills (e.g., Python, JavaScript)">
-      <input type="text" name="toolsFrameworks" placeholder="Soft Skills (e.g., Communication, Teamwork)">
-      <input type="text" name="otherSkills" placeholder="Skills (e.g., Adaptability, Creativity)">
+    <div class="form-group">
+      <label for="objective">Career Objective</label>
+      <textarea name="objective"></textarea>
     </div>
-
-    <div class="form-group" id="extraSkillsBlocks">
-      <label>Additional Skill Sections</label>
+    <div class="form-group">
+      <label for="degree[]">Degree</label>
+      <input type="text" name="degree[]" />
     </div>
-    <button type="button" id="addExtraSkillBtn" style="margin-bottom:1rem; background:#90e0ef; color:#0077b6;">+ Add Skill Section</button>
-
-    <br><br>
+    <div class="form-group">
+      <label for="institution[]">Institution</label>
+      <input type="text" name="institution[]" />
+    </div>
+    <div class="form-group">
+      <label for="duration[]">Duration</label>
+      <input type="text" name="duration[]" />
+    </div>
+    <div class="form-group">
+      <label for="cgpa[]">Marks / CGPA</label>
+      <input type="text" name="cgpa[]" />
+    </div>
+    <div class="form-group">
+      <label for="jobTitle[]">Job Title</label>
+      <input type="text" name="jobTitle[]" />
+    </div>
+    <div class="form-group">
+      <label for="company[]">Company</label>
+      <input type="text" name="company[]" />
+    </div>
+    <div class="form-group">
+      <label for="expDuration[]">Duration of Job</label>
+      <input type="text" name="expDuration[]" />
+    </div>
+    <div class="form-group">
+      <label for="responsibilities[]">Responsibilities</label>
+      <textarea name="responsibilities[]"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="projectName[]">Project Name</label>
+      <input type="text" name="projectName[]" />
+    </div>
+    <div class="form-group">
+      <label for="techUsed[]">Tech Used</label>
+      <input type="text" name="techUsed[]" />
+    </div>
+    <div class="form-group">
+      <label for="projectLinks[]">Project Demo URL</label>
+      <input type="url" name="projectLinks[]" />
+    </div>
+    <div class="form-group">
+      <label for="programmingLanguages">Programming Languages</label>
+      <input type="text" name="programmingLanguages" />
+    </div>
+    <div class="form-group">
+      <label for="toolsFrameworks">Tools / Frameworks</label>
+      <input type="text" name="toolsFrameworks" />
+    </div>
+    <div class="form-group">
+      <label for="otherSkills">Other Skills</label>
+      <input type="text" name="otherSkills" />
+    </div>
+    <div class="form-group">
+      <label for="certName[]">Certification Name</label>
+      <input type="text" name="certName[]" />
+    </div>
+    <div class="form-group">
+      <label for="certAuthority[]">Issuing Authority</label>
+      <input type="text" name="certAuthority[]" />
+    </div>
+    <div class="form-group">
+      <label for="achievement[]">Achievements</label>
+      <textarea name="achievement[]"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="hobby[]">Hobbies</label>
+      <input type="text" name="hobby[]" />
+    </div>
+    <div class="form-group">
+      <label for="language[]">Languages Known</label>
+      <input type="text" name="language[]" />
+    </div>
+    <div class="form-group">
+      <label for="customSectionTitle[]">Custom Section Title</label>
+      <input type="text" name="customSectionTitle[]" />
+    </div>
+    <div class="form-group">
+      <label for="customSectionContent[]">Custom Section Content</label>
+      <textarea name="customSectionContent[]"></textarea>
+    </div>
     <button type="submit">Generate Resume</button>
   </form>
 
   <div id="resume"></div>
+  <button onclick="downloadPDF()">Download as PDF</button>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      function addBlock(containerId, html) {
-        const container = document.getElementById(containerId);
-        const div = document.createElement('div');
-        div.className = 'form-group';
-        div.innerHTML = html;
-        container.appendChild(div);
+    const form = document.getElementById('resumeForm');
+    const resume = document.getElementById('resume');
+
+    form.onsubmit = function(e) {
+      e.preventDefault();
+      const data = new FormData(form);
+
+      const postData = new URLSearchParams();
+      for (let [key, value] of data.entries()) {
+        postData.append(key, value);
+      }
+      fetch('https://script.google.com/macros/s/AKfycbzjxTnCgGBOBp-4viqtzvCbunJ-fWL6jhVEuGip--ATbIfI9VJB83Htiy8_36YW_pkDSg/exec', {
+        method: 'POST',
+        body: postData,
+      })
+      .then(response => response.text())
+      .then(result => {
+        console.log('Submitted to Google Sheets:', result);
+      })
+      .catch(error => {
+        console.error('Submission error:', error);
+      });
+
+      let html = `<div><h2>${data.get('fullName')}</h2><p><strong>Profession:</strong> ${data.get('profession') || 'N/A'}</p>`;
+      html += `<p><strong>Email:</strong> ${data.get('email')} | <strong>Phone:</strong> ${data.get('phone[]')}</p>`;
+      html += `<p><strong>Address:</strong> ${data.get('address')}</p>`;
+      html += `<p><strong>URLs:</strong> ${data.get('url[]')}</p>`;
+      html += `<h3>Career Objective</h3><p>${data.get('objective')}</p>`;
+
+      html += `<h3>Education</h3><p>${data.get('degree[]')} at ${data.get('institution[]')} (${data.get('duration[]')})<br>Marks: ${data.get('cgpa[]')}</p>`;
+
+      html += `<h3>Experience</h3><p><strong>${data.get('jobTitle[]')}</strong> at ${data.get('company[]')} (${data.get('expDuration[]')})<br>${data.get('responsibilities[]')}</p>`;
+
+      html += `<h3>Project</h3><p><strong>${data.get('projectName[]')}</strong><br>Tech Used: ${data.get('techUsed[]')}<br>Demo: ${data.get('projectLinks[]')}</p>`;
+
+      html += `<h3>Skills</h3><p>Programming Languages: ${data.get('programmingLanguages')}<br>Tools/Frameworks: ${data.get('toolsFrameworks')}<br>Other Skills: ${data.get('otherSkills')}</p>`;
+
+      html += `<h3>Certifications</h3><p>${data.get('certName[]')} - ${data.get('certAuthority[]')}</p>`;
+
+      html += `<h3>Other</h3><p><strong>Achievements:</strong> ${data.get('achievement[]')}<br><strong>Hobbies:</strong> ${data.get('hobby[]')}<br><strong>Language:</strong> ${data.get('language[]')}</p>`;
+
+      if (data.get('customSectionTitle[]') && data.get('customSectionContent[]')) {
+        html += `<h3>${data.get('customSectionTitle[]')}</h3><p>${data.get('customSectionContent[]')}</p>`;
       }
 
-      document.getElementById('addExperienceBtn').onclick = () => addBlock('experienceBlocks', `
-        <hr>
-        <input type="text" name="experienceTitle[]" placeholder="Title">
-        <input type="text" name="experienceCompany[]" placeholder="Company">
-        <input type="text" name="experienceDuration[]" placeholder="Duration">
-        <textarea name="experienceDesc[]" rows="2" placeholder="Description"></textarea>
-      `);
+      html += '</div>';
+      resume.innerHTML = html;
+    };
 
-      document.getElementById('addEducationBtn').onclick = () => addBlock('educationBlocks', `
-        <hr>
-        <input type="text" name="educationDegree[]" placeholder="Degree">
-        <input type="text" name="educationSchool[]" placeholder="School">
-        <input type="text" name="educationYear[]" placeholder="Year">
-      `);
-
-      document.getElementById('addExtraSkillBtn').onclick = () => addBlock('extraSkillsBlocks', `
-        <hr>
-        <input type="text" name="skillSectionTitle[]" placeholder="Skill Section Title (optional)">
-        <textarea name="skillSectionContent[]" rows="2" placeholder="Skills (comma separated, e.g., Python, Leadership)"></textarea>
-      `);
-
-      document.getElementById('resumeForm').onsubmit = function (e) {
-        e.preventDefault();
-        const formData = new FormData(this);
-        const getVals = (name) => formData.getAll(name).filter(val => val.trim() !== "");
-
-        const name = formData.get("name") || "";
-        const email = formData.get("email") || "";
-        const phone = formData.get("phone") || "";
-        const summary = formData.get("summary") || "";
-
-        const experienceTitles = getVals("experienceTitle[]");
-        const experienceCompanies = getVals("experienceCompany[]");
-        const experienceDurations = getVals("experienceDuration[]");
-        const experienceDescs = getVals("experienceDesc[]");
-
-        const educationDegrees = getVals("educationDegree[]");
-        const educationSchools = getVals("educationSchool[]");
-        const educationYears = getVals("educationYear[]");
-
-        const programmingLanguages = (formData.get("programmingLanguages") || "").split(",").map(s => s.trim()).filter(s => s);
-        const toolsFrameworks = (formData.get("toolsFrameworks") || "").split(",").map(s => s.trim()).filter(s => s);
-        const otherSkills = (formData.get("otherSkills") || "").split(",").map(s => s.trim()).filter(s => s);
-
-        const skillSectionTitles = getVals('skillSectionTitle[]');
-        const skillSectionContents = getVals('skillSectionContent[]');
-
-        let html = `<h2 style="color:#0077b6;">${name}</h2>`;
-        if (email || phone) html += `<p>${email ? email : ''}${email && phone ? ' | ' : ''}${phone ? phone : ''}</p>`;
-        if (summary) html += `<p><em>${summary}</em></p>`;
-
-        if (experienceTitles.length) {
-          html += `<h4 style="color:#0077b6; margin-top:1rem;">Experience</h4>`;
-          experienceTitles.forEach((title, i) => {
-            html += `<strong>${title}</strong> - ${experienceCompanies[i] || ''} <em>${experienceDurations[i] || ''}</em><br>`;
-            html += `<p>${experienceDescs[i] || ''}</p>`;
-          });
-        }
-
-        if (educationDegrees.length) {
-          html += `<h4 style="color:#0077b6; margin-top:1rem;">Education</h4>`;
-          educationDegrees.forEach((deg, i) => {
-            html += `<strong>${deg}</strong> - ${educationSchools[i] || ''} (${educationYears[i] || ''})<br>`;
-          });
-        }
-
-        if (programmingLanguages.length || toolsFrameworks.length || otherSkills.length) {
-          html += `<h4 style="color:#0077b6; margin-top:1rem;">Skills</h4><div>`;
-          if (programmingLanguages.length) html += `<strong>Technical Skills:</strong> ${programmingLanguages.join(', ')}<br>`;
-          if (toolsFrameworks.length) html += `<strong>Soft Skills:</strong> ${toolsFrameworks.join(', ')}<br>`;
-          if (otherSkills.length) html += `<strong>Skills:</strong> ${otherSkills.join(', ')}`;
-          html += `</div>`;
-        }
-
-        skillSectionContents.forEach((content, i) => {
-          if (content) {
-            const title = skillSectionTitles[i] || 'Skills';
-            const skills = content.split(',').map(s => s.trim()).filter(s => s);
-            if (skills.length) {
-              html += `<h4 style="color:#0077b6; margin-top:1rem;">${title}</h4>`;
-              html += `<ul>${skills.map(skill => `<li>${skill}</li>`).join('')}</ul>`;
-            }
-          }
-        });
-
-        document.getElementById('resume').innerHTML = html;
-      };
-    });
+    function downloadPDF() {
+      if (!resume.innerHTML.trim()) {
+        alert("Please generate the resume first.");
+        return;
+      }
+      html2pdf().from(resume).save('resume.pdf');
+    }
   </script>
 </body>
 </html>
