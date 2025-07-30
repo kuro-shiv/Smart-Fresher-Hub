@@ -75,9 +75,9 @@
         <button type="button" id="addProjectBtn" style="margin-bottom:1rem; background:#90e0ef; color:#0077b6;">+ Add Project</button>
         <div class="form-group" id="skillsBlocks">
           <label>Skills</label>
-          <input type="text" name="programmingLanguages" placeholder="Programming Languages (e.g., Python, JavaScript)">
-          <input type="text" name="toolsFrameworks" placeholder="Tools/Frameworks (e.g., React, Pandas)">
-          <input type="text" name="otherSkills" placeholder="Other Skills (e.g., Communication, Leadership)">
+          <input type="text" name="programmingLanguages" placeholder="Technical Skill (e.g., Python, JavaScript)">
+          <input type="text" name="toolsFrameworks" placeholder="Soft Skills (e.g., Communication, Leadership)">
+          <input type="text" name="otherSkills" placeholder="Skills (e.g., Medical, Pharmacy, etc.)">
         </div>
         <div class="form-group" id="certBlocks">
           <label>Certifications</label>
@@ -280,9 +280,9 @@
         }
         if (programmingLanguages.length || toolsFrameworks.length || otherSkills.length) {
           html += `<h4 style="color:#0077b6; margin-top:1rem;">Skills</h4><div>`;
-          if (programmingLanguages.length) html += `<strong>Programming Languages:</strong> ${programmingLanguages.join(', ')}<br>`;
-          if (toolsFrameworks.length) html += `<strong>Tools/Frameworks:</strong> ${toolsFrameworks.join(', ')}<br>`;
-          if (otherSkills.length) html += `<strong>Other Skills:</strong> ${otherSkills.join(', ')}`;
+          if (programmingLanguages.length) html += `<strong>Technical Skills:</strong> ${programmingLanguages.join(', ')}<br>`;
+          if (toolsFrameworks.length) html += `<strong>Soft Skills:</strong> ${toolsFrameworks.join(', ')}<br>`;
+          if (otherSkills.length) html += `<strong>Skills:</strong> ${otherSkills.join(', ')}`;
           html += `</div>`;
         }
         if (certNames.length) {
