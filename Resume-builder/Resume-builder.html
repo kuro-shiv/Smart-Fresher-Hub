@@ -114,7 +114,10 @@
     <p>Contact: <a href="mailto: smartfresherhubsa@gmail.com" style="color:#0077b6;">smartfresherhubsa@gmail.com</a> | Phone: +91-8299142475</p>
     <p>© 2025 Smart Fresher Hub | Build your career with confidence.</p>
   </footer>
+  
+
   <script>
+    
     document.addEventListener('DOMContentLoaded', function() {
       // REMOVE these lines, they cause errors and leak sensitive info
       // console.log("SMTP Email:", SMTP_EMAIL);
@@ -325,33 +328,26 @@
       });
 
       // Download as PDF (simple print dialog for ATS-friendly format)
-      document.getElementById('downloadBtn').addEventListener('click', function() {
+      document.getElementById('downloadBtn').addEventListener('click', function () {
         const resumeContent = document.getElementById('resumeContent');
         if (resumeContent) {
-          const printWindow = window.open('', '', 'width=800,height=900');
-          printWindow.document.write(`
-            <html>
-              <head>
-                <title>Resume - Download</title>
-                <style>
-                  body { font-family: 'Poppins', Arial, sans-serif; background: #fff; color: #222; }
-                  h2, h3, h4 { color: #0077b6; }
-                  ul { columns:2; padding-left:1.5rem; }
-                  hr { margin:1rem 0; border:0; border-top:1px solid #e3eafc; }
-                  div { page-break-inside: avoid; }
-                </style>
-              </head>
-              <body>${resumeContent.outerHTML}</body>
-            </html>
-          `);
-          printWindow.document.close();
-          printWindow.focus();
-          printWindow.print();
-        } else {
-          alert('Please generate your resume first.');
-        }
+          const opt = {
+              margin:       0.5,
+              filename:     'Smart-Fresher-Resume.pdf',
+              image:        { type: 'jpeg', quality: 0.98 },
+              html2canvas:  { scale: 2 },
+              jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+
+          html2pdf().set(opt).from(resumeContent).save();
+          } else {
+            alert('Please generate your resume first.');
+          }
       });
-    });
+
+      });
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
 </body>
 </html>
