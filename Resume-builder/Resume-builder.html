@@ -278,11 +278,17 @@
           });
         }
         if (programmingLanguages.length || toolsFrameworks.length || otherSkills.length) {
-          html += <h4 style="color:#0077b6; margin-top:1rem;">Skills</h4><div>;
-          if (programmingLanguages.length) html += <strong>Technical Skills:</strong> ${programmingLanguages.join(', ')}<br>;
-          if (toolsFrameworks.length) html += <strong>Soft Skills:</strong> ${toolsFrameworks.join(', ')}<br>;
-          if (otherSkills.length) html += <strong>Skills:</strong> ${otherSkills.join(', ')};
-          html += </div>;
+            html += `<h4 style="color:#0077b6; margin-top:1rem;">Skills</h4><div>`;
+            if (programmingLanguages.length) {
+                  html += `<strong>Technical Skills:</strong> ${programmingLanguages.join(', ')}<br>`;
+           }
+           if (toolsFrameworks.length) {
+                  html += `<strong>Soft Skills:</strong> ${toolsFrameworks.join(', ')}<br>`;
+           }
+           if (otherSkills.length) {
+                html += `<strong>Skills:</strong> ${otherSkills.join(', ')}`;
+          }
+                html += `</div>`;
         }
         if (certNames.length) {
           html += <h4 style="color:#0077b6; margin-top:1rem;">Certifications</h4><ul>;
