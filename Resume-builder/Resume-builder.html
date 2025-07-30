@@ -75,9 +75,9 @@
         <button type="button" id="addProjectBtn" style="margin-bottom:1rem; background:#90e0ef; color:#0077b6;">+ Add Project</button>
         <div class="form-group" id="skillsBlocks">
           <label>Skills</label>
-          <input type="text" name="programmingLanguages" placeholder="Technical Skills (e.g., Python, JavaScript)">
-          <input type="text" name="toolsFrameworks" placeholder="Soft Skills (e.g., Communication, Leadership)">
-          <input type="text" name="otherSkills" placeholder="Skills (e.g., medical, pharma)">
+          <input type="text" name="programmingLanguages" placeholder="Programming Languages (e.g., Python, JavaScript)">
+          <input type="text" name="toolsFrameworks" placeholder="Tools/Frameworks (e.g., React, Pandas)">
+          <input type="text" name="otherSkills" placeholder="Other Skills (e.g., Communication, Leadership)">
         </div>
         <div class="form-group" id="certBlocks">
           <label>Certifications</label>
@@ -111,7 +111,8 @@
     </section>
   </div>
   <footer>
-    <p>Contact: <a href="mailto: smartfresherhubsa@gmail.com" style="color:#0077b6;">smartfresherhubsa@gmail.com</a> | Phone: +91-8299142475 © 2025 Smart Fresher Hub | Build your career with confidence.</p>
+    <p>Contact: <a href="mailto: smartfresherhubsa@gmail.com" style="color:#0077b6;">smartfresherhubsa@gmail.com</a> | Phone: +91-8299142475</p>
+    <p>© 2025 Smart Fresher Hub | Build your career with confidence.</p>
   </footer>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -124,47 +125,47 @@
       function addBlock(containerId, html) {
         document.getElementById(containerId).insertAdjacentHTML('beforeend', html);
       }
-      document.getElementById('addPhoneBtn').onclick = () => addBlock('phoneNumbers', <input type="text" name="phone[]" placeholder="Additional Phone Number">);
-      document.getElementById('addEducationBtn').onclick = () => addBlock('educationBlocks', 
+      document.getElementById('addPhoneBtn').onclick = () => addBlock('phoneNumbers', `<input type="text" name="phone[]" placeholder="Additional Phone Number">`);
+      document.getElementById('addEducationBtn').onclick = () => addBlock('educationBlocks', `
         <hr>
         <input type="text" name="degree[]" placeholder="Degree (e.g., B.Tech in IT)">
         <input type="text" name="institution[]" placeholder="Institution">
         <input type="text" name="duration[]" placeholder="Duration (e.g., 2021-2025)">
         <input type="text" name="cgpa[]" placeholder="CGPA/Percentage (optional)">
-      );
-      document.getElementById('addExperienceBtn').onclick = () => addBlock('experienceBlocks', 
+      `);
+      document.getElementById('addExperienceBtn').onclick = () => addBlock('experienceBlocks', `
         <hr>
         <input type="text" name="jobTitle[]" placeholder="Job Title">
         <input type="text" name="company[]" placeholder="Company Name">
         <input type="text" name="expDuration[]" placeholder="Duration (e.g., Jan 2023 – May 2023)">
         <textarea name="responsibilities[]" rows="2" placeholder="Responsibilities (comma separated)"></textarea>
-      );
-      document.getElementById('addProjectBtn').onclick = () => addBlock('projectBlocks', 
+      `);
+      document.getElementById('addProjectBtn').onclick = () => addBlock('projectBlocks', `
         <hr>
         <input type="text" name="projectName[]" placeholder="Project Name">
         <input type="text" name="techUsed[]" placeholder="Tech Used">
         <textarea name="projectDesc[]" rows="2" placeholder="Description (bullets, comma separated)"></textarea>
         <input type="text" name="projectLinks[]" placeholder="GitHub/Live Demo URL">
-      );
-      document.getElementById('addCertBtn').onclick = () => addBlock('certBlocks', 
+      `);
+      document.getElementById('addCertBtn').onclick = () => addBlock('certBlocks', `
         <hr>
         <input type="text" name="certName[]" placeholder="Certification Name">
         <input type="text" name="certAuthority[]" placeholder="Issuing Authority">
         <input type="text" name="certYear[]" placeholder="Year">
-      );
-      document.getElementById('addAchieveBtn').onclick = () => addBlock('achieveBlocks', <input type="text" name="achievement[]" placeholder="Achievement">);
-      document.getElementById('addHobbyBtn').onclick = () => addBlock('hobbyBlocks', <input type="text" name="hobby[]" placeholder="Hobby (e.g., Blogging)">);
-      document.getElementById('addLangBtn').onclick = () => addBlock('langBlocks', 
+      `);
+      document.getElementById('addAchieveBtn').onclick = () => addBlock('achieveBlocks', `<input type="text" name="achievement[]" placeholder="Achievement">`);
+      document.getElementById('addHobbyBtn').onclick = () => addBlock('hobbyBlocks', `<input type="text" name="hobby[]" placeholder="Hobby (e.g., Blogging)">`);
+      document.getElementById('addLangBtn').onclick = () => addBlock('langBlocks', `
         <hr>
         <input type="text" name="language[]" placeholder="Language (e.g., English)">
         <input type="text" name="proficiency[]" placeholder="Proficiency (e.g., Fluent)">
-      );
-      document.getElementById('addUrlBtn').onclick = () => addBlock('urlBlocks', <input type="text" name="url[]" placeholder="Additional URL (e.g., Portfolio, Blog)">);
-      document.getElementById('addCustomSectionBtn').onclick = () => addBlock('customSectionBlocks', 
+      `);
+      document.getElementById('addUrlBtn').onclick = () => addBlock('urlBlocks', `<input type="text" name="url[]" placeholder="Additional URL (e.g., Portfolio, Blog)">`);
+      document.getElementById('addCustomSectionBtn').onclick = () => addBlock('customSectionBlocks', `
         <hr>
         <input type="text" name="customSectionTitle[]" placeholder="Section Title (e.g., Volunteering)">
         <textarea name="customSectionContent[]" rows="2" placeholder="Section Content"></textarea>
-      );
+      `);
 
       document.getElementById('resumeForm').addEventListener('submit', function(e) {
         e.preventDefault();
@@ -226,105 +227,99 @@
         const customSectionContents = getVals('customSectionContent[]');
 
         // Build resume HTML (sections only if filled)
-        let html = <div id="resumeContent" style="background:#fff; border:1px solid #e3eafc; border-radius:10px; padding:1.5rem; max-width:800px; margin:auto; font-size:1rem;">;
-        if (fullName) html += <h2 style="color:#0077b6; margin-bottom:0.2rem;">${fullName}</h2>;
-        if (address) html += <div style="font-size:1rem; color:#222; margin-bottom:0.5rem;"><span>🏠 ${address}</span></div>;
+        let html = `<div id="resumeContent" style="background:#fff; border:1px solid #e3eafc; border-radius:10px; padding:1.5rem; max-width:800px; margin:auto; font-size:1rem;">`;
+        if (fullName) html += `<h2 style="color:#0077b6; margin-bottom:0.2rem;">${fullName}</h2>`;
+        if (address) html += `<div style="font-size:1rem; color:#222; margin-bottom:0.5rem;"><span>🏠 ${address}</span></div>`;
         if (phones.length || email || urls.length) {
-          html += <div style="font-size:1rem; color:#222;">;
-          if (phones.length) html += phones.map(p => <span>📞 ${p}</span>).join(' | ');
-          if (email) html +=  | <span>✉️ ${email}</span>;
-          if (urls.length) html += ' | ' + urls.map(u => <span>${u}</span>).join(' | ');
-          html += </div>;
+          html += `<div style="font-size:1rem; color:#222;">`;
+          if (phones.length) html += phones.map(p => `<span>📞 ${p}</span>`).join(' | ');
+          if (email) html += ` | <span>✉️ ${email}</span>`;
+          if (urls.length) html += ' | ' + urls.map(u => `<span>${u}</span>`).join(' | ');
+          html += `</div>`;
         }
-        html += <hr style="margin:1rem 0; border:0; border-top:1px solid #e3eafc;">;
-        if (objective) html += <h4 style="color:#0077b6; margin-top:1rem;">Career Objective</h4><p>${objective}</p>;
+        html += `<hr style="margin:1rem 0; border:0; border-top:1px solid #e3eafc;">`;
+        if (objective) html += `<h4 style="color:#0077b6; margin-top:1rem;">Career Objective</h4><p>${objective}</p>`;
         if (degrees.length) {
-          html += <h4 style="color:#0077b6; margin-top:1rem;">Education</h4>;
+          html += `<h4 style="color:#0077b6; margin-top:1rem;">Education</h4>`;
           degrees.forEach((deg, i) => {
             if (deg || institutions[i] || durations[i] || cgpas[i]) {
-              html += <div style="margin-bottom:0.5rem;">
-                ${deg ? <strong>${deg}</strong> : ''} 
-                ${institutions[i] ? | ${institutions[i]} : ''} 
-                ${durations[i] ? | ${durations[i]} : ''}
-                ${cgpas[i] ? <br>CGPA/Percentage: ${cgpas[i]} : ''}
-              </div>;
+              html += `<div style="margin-bottom:0.5rem;">
+                ${deg ? `<strong>${deg}</strong>` : ''} 
+                ${institutions[i] ? `| ${institutions[i]}` : ''} 
+                ${durations[i] ? `| ${durations[i]}` : ''}
+                ${cgpas[i] ? `<br>CGPA/Percentage: ${cgpas[i]}` : ''}
+              </div>`;
             }
           });
         }
         if (jobTitles.length) {
-          html += <h4 style="color:#0077b6; margin-top:1rem;">Work Experience / Internships</h4>;
+          html += `<h4 style="color:#0077b6; margin-top:1rem;">Work Experience / Internships</h4>`;
           jobTitles.forEach((jt, i) => {
             if (jt || companies[i] || expDurations[i] || responsibilities[i]) {
-              html += <div style="margin-bottom:0.5rem;">
-                ${jt ? <strong>${jt}</strong> : ''} 
-                ${companies[i] ? | ${companies[i]} : ''} 
-                ${expDurations[i] ? | ${expDurations[i]} : ''}
-                ${responsibilities[i] ? <ul>${responsibilities[i].split(',').map(r => <li>${r.trim()}</li>).join('')}</ul> : ''}
-              </div>;
+              html += `<div style="margin-bottom:0.5rem;">
+                ${jt ? `<strong>${jt}</strong>` : ''} 
+                ${companies[i] ? `| ${companies[i]}` : ''} 
+                ${expDurations[i] ? `| ${expDurations[i]}` : ''}
+                ${responsibilities[i] ? `<ul>${responsibilities[i].split(',').map(r => `<li>${r.trim()}</li>`).join('')}</ul>` : ''}
+              </div>`;
             }
           });
         }
         if (projectNames.length) {
-          html += <h4 style="color:#0077b6; margin-top:1rem;">Projects</h4>;
+          html += `<h4 style="color:#0077b6; margin-top:1rem;">Projects</h4>`;
           projectNames.forEach((pn, i) => {
             if (pn || techUsed[i] || projectDesc[i] || projectLinks[i]) {
-              html += <div style="margin-bottom:0.5rem;">
-                ${pn ? <strong>${pn}</strong> : ''} 
-                ${techUsed[i] ? | <span>${techUsed[i]}</span> : ''}
-                ${projectDesc[i] ? <ul>${projectDesc[i].split(',').map(d => <li>${d.trim()}</li>).join('')}</ul> : ''}
-                ${projectLinks[i] ? <a href="${projectLinks[i]}" target="_blank">${projectLinks[i]}</a> : ''}
-              </div>;
+              html += `<div style="margin-bottom:0.5rem;">
+                ${pn ? `<strong>${pn}</strong>` : ''} 
+                ${techUsed[i] ? `| <span>${techUsed[i]}</span>` : ''}
+                ${projectDesc[i] ? `<ul>${projectDesc[i].split(',').map(d => `<li>${d.trim()}</li>`).join('')}</ul>` : ''}
+                ${projectLinks[i] ? `<a href="${projectLinks[i]}" target="_blank">${projectLinks[i]}</a>` : ''}
+              </div>`;
             }
           });
         }
         if (programmingLanguages.length || toolsFrameworks.length || otherSkills.length) {
-            html += `<h4 style="color:#0077b6; margin-top:1rem;">Skills</h4><div>`;
-            if (programmingLanguages.length) {
-                  html += `<strong>Technical Skills:</strong> ${programmingLanguages.join(', ')}<br>`;
-           }
-           if (toolsFrameworks.length) {
-                  html += `<strong>Soft Skills:</strong> ${toolsFrameworks.join(', ')}<br>`;
-           }
-           if (otherSkills.length) {
-                html += `<strong>Skills:</strong> ${otherSkills.join(', ')}`;
-          }
-                html += `</div>`;
+          html += `<h4 style="color:#0077b6; margin-top:1rem;">Skills</h4><div>`;
+          if (programmingLanguages.length) html += `<strong>Programming Languages:</strong> ${programmingLanguages.join(', ')}<br>`;
+          if (toolsFrameworks.length) html += `<strong>Tools/Frameworks:</strong> ${toolsFrameworks.join(', ')}<br>`;
+          if (otherSkills.length) html += `<strong>Other Skills:</strong> ${otherSkills.join(', ')}`;
+          html += `</div>`;
         }
         if (certNames.length) {
-          html += <h4 style="color:#0077b6; margin-top:1rem;">Certifications</h4><ul>;
+          html += `<h4 style="color:#0077b6; margin-top:1rem;">Certifications</h4><ul>`;
           certNames.forEach((cn, i) => {
             if (cn || certAuthorities[i] || certYears[i]) {
-              html += <li>${cn ? cn : ''}${certAuthorities[i] ?  – ${certAuthorities[i]} : ''}${certYears[i] ? ', ' + certYears[i] : ''}</li>;
+              html += `<li>${cn ? cn : ''}${certAuthorities[i] ? ` – ${certAuthorities[i]}` : ''}${certYears[i] ? ', ' + certYears[i] : ''}</li>`;
             }
           });
-          html += </ul>;
+          html += `</ul>`;
         }
         if (achievements.length) {
-          html += <h4 style="color:#0077b6; margin-top:1rem;">Achievements</h4><ul>;
-          achievements.forEach(a => { if (a) html += <li>${a}</li>; });
-          html += </ul>;
+          html += `<h4 style="color:#0077b6; margin-top:1rem;">Achievements</h4><ul>`;
+          achievements.forEach(a => { if (a) html += `<li>${a}</li>`; });
+          html += `</ul>`;
         }
         if (hobbies.length) {
-          html += <h4 style="color:#0077b6; margin-top:1rem;">Hobbies</h4><ul>;
-          hobbies.forEach(h => { if (h) html += <li>${h}</li>; });
-          html += </ul>;
+          html += `<h4 style="color:#0077b6; margin-top:1rem;">Hobbies</h4><ul>`;
+          hobbies.forEach(h => { if (h) html += `<li>${h}</li>`; });
+          html += `</ul>`;
         }
         if (languages.length) {
-          html += <h4 style="color:#0077b6; margin-top:1rem;">Languages</h4><ul>;
+          html += `<h4 style="color:#0077b6; margin-top:1rem;">Languages</h4><ul>`;
           languages.forEach((l, i) => {
-            if (l || proficiencies[i]) html += <li>${l ? l : ''}${proficiencies[i] ?  – ${proficiencies[i]} : ''}</li>;
+            if (l || proficiencies[i]) html += `<li>${l ? l : ''}${proficiencies[i] ? ` – ${proficiencies[i]}` : ''}</li>`;
           });
-          html += </ul>;
+          html += `</ul>`;
         }
         if (customSectionTitles.length) {
           customSectionTitles.forEach((title, i) => {
             if (title || customSectionContents[i]) {
-              html += <h4 style="color:#0077b6; margin-top:1rem;">${title}</h4>;
-              html += <p>${customSectionContents[i] ? customSectionContents[i].replace(/\n/g, '<br>') : ''}</p>;
+              html += `<h4 style="color:#0077b6; margin-top:1rem;">${title}</h4>`;
+              html += `<p>${customSectionContents[i] ? customSectionContents[i].replace(/\n/g, '<br>') : ''}</p>`;
             }
           });
         }
-        html += </div>;
+        html += `</div>`;
         document.getElementById('resumeResult').innerHTML = html;
         window.scrollTo({ top: document.getElementById('resumeResult').offsetTop, behavior: 'smooth' });
       });
@@ -334,7 +329,7 @@
         const resumeContent = document.getElementById('resumeContent');
         if (resumeContent) {
           const printWindow = window.open('', '', 'width=800,height=900');
-          printWindow.document.write(
+          printWindow.document.write(`
             <html>
               <head>
                 <title>Resume - Download</title>
@@ -348,7 +343,7 @@
               </head>
               <body>${resumeContent.outerHTML}</body>
             </html>
-          );
+          `);
           printWindow.document.close();
           printWindow.focus();
           printWindow.print();
